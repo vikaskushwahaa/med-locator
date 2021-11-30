@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const StoreSchema = new.mongoose.Schema({
+const StoreSchema = new mongoose.Schema({
     storeId : {
         type : String,
         required: [true, "Please add store id"],
@@ -36,5 +36,5 @@ const StoreSchema = new.mongoose.Schema({
 
 
 
-module.exports = mongoose.model('Store'.StoreSchema);
+module.exports = mongoose.model('Store',StoreSchema);
 
