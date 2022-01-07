@@ -22,7 +22,7 @@ exports.getStore = async (req, res, next) => {
 
 
 
-//@desc Create a store
+// @desc Create a store
 // routes POST /api/stores
 // @access public
 
@@ -44,7 +44,5 @@ exports.addStore = async (req, res, next) => {
         }
 
         res.status(500).josn({ error: 'Server error' });
-
-
     }
 };

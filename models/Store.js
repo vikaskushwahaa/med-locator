@@ -33,7 +33,9 @@ const StoreSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         defaulf: Date.now
-    }
+    },
+
+
 });
 
 
@@ -46,4 +48,3 @@ StoreSchema.pre('save', async function(next) {
 
 
 module.exports = mongoose.model('Store',StoreSchema);
-

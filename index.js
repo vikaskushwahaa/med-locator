@@ -30,7 +30,8 @@ app.get('/',(req , res)=>{
 
 //routes
 app.use('/api/stores', require('./routes/stores'));
-
+app.use('/api/medicines', require('./routes/medicines'));
+app.use('/api/medicineStocks', require('./routes/medicineStocks'));
 
 
 
