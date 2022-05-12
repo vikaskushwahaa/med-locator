@@ -36,7 +36,7 @@ exports.addMedicine = async(req, res, next)=>{
         });
     } catch (err) {
         console.log(err);
-        //res.status(500).josn({error: 'Server error'});
+        //res.status(500).json({error: 'Server error'});
         // if (err.code) {
         //     return res.status(400).json(
         //         { error: 'this stores already exists' }
@@ -47,4 +47,21 @@ exports.addMedicine = async(req, res, next)=>{
     }
 
 
+}
+
+exports.addMultipleMedicines = async(req, res ,next) => {
+    try{
+
+        const medicine = await Medicines.create(req.body);
+
+        return res.status(200).json({
+            success: true,
+            data: medicine,
+        });
+    }catch(err){
+
+        console.log(err);
+
+        return res.status(500).json({error: "Error: Server error"});
+    }
 }

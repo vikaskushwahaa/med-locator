@@ -53,7 +53,7 @@ exports.searchByMedId = async function (req, res, next) {
     try {
         const stores = await MedicineStock
             .find({ 'medicine_availible.medicine_id': { $eq: med_id } }, { store_id: 1, 'medicine_availible': {$elemMatch:{medicine_id:{$eq:med_id}}} })
-            .populate('store_id', 'address')
+            .populate('store_id')
             .exec();
 
         //console.log(stores);
@@ -104,10 +104,10 @@ exports.searchMedicineByName = async function(req, res, next) {
         
         const iid = results[0]._id;
         const strid = iid.toString();
-        const url = 'http://localhost:3000/api/medicineStocks/' + strid;
+        const url = 'http://localhost:7000/api/medicineStocks/' + strid;
         console.log(url);
 
-        fetch('http://localhost:3000/api/medicineStocks/'+strid)
+        fetch(url)
         .then(res=> res.json())
         .then(data=> 
             {
@@ -115,7 +115,7 @@ exports.searchMedicineByName = async function(req, res, next) {
                 // const dat = data;
                 res.status(200).json({
                     success: true,
-                    res: data.data
+                    data: data.data
                 });
             });
 
