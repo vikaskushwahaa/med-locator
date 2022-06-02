@@ -67,7 +67,7 @@ const StoreSchema = new mongoose.Schema({
 });
 
 
-//geocode and create location
+// geocode and create location
 // StoreSchema.pre('save', async function(next) {
 //     const loc = await geocoder.geocode(this.address);
 //     console.log(loc);
